@@ -1,10 +1,20 @@
-// import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import About from "./Pages/About";
+import Blog from "./Pages/Blog";
+import Home from "./Pages/Home";
+import Header from "./Pages/Shared/Header";
 
 function App() {
 	return (
-		<div className='container'>
-			<h1 className='text-center text-primary'>Hello World</h1>
-		</div>
+		<BrowserRouter>
+			<Header />
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/home' element={<Home />} />
+				<Route path='/about' element={<About />} />
+				<Route path='/blog' element={<Blog />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
