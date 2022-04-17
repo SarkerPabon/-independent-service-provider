@@ -1,7 +1,7 @@
 import { Carousel } from "react-bootstrap";
-import banner1 from "../../../images/banner1.jpg";
-import banner2 from "../../../images/banner2.jpg";
-import banner3 from "../../../images/banner3.jpg";
+import banner1 from "../../../images/banner/banner1.jpg";
+import banner2 from "../../../images/banner/banner2.jpg";
+import banner3 from "../../../images/banner/banner3.jpg";
 import BannerStyle from "./Banner.module.css";
 
 const Banner = () => {
