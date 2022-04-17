@@ -1,7 +1,7 @@
 import { Carousel } from "react-bootstrap";
-import banner1 from "../../images/banner1.jpg";
-import banner2 from "../../images/banner2.jpg";
-import banner3 from "../../images/banner3.jpg";
+import banner1 from "../../../images/banner1.jpg";
+import banner2 from "../../../images/banner2.jpg";
+import banner3 from "../../../images/banner3.jpg";
 import BannerStyle from "./Banner.module.css";
 
 const Banner = () => {
@@ -14,10 +14,10 @@ const Banner = () => {
 					alt='First slide'
 				/>
 				<Carousel.Caption>
-					<p className='text-uppercase mb-1'>
+					<p className={`text-uppercase mb-1`}>
 						We use latest medical technology.
 					</p>
-					<h3>Let Us Brighten Your Smile</h3>
+					<h3 className='display-5'>Let Us Brighten Your Smile</h3>
 				</Carousel.Caption>
 			</Carousel.Item>
 			<Carousel.Item>
@@ -31,7 +31,7 @@ const Banner = () => {
 					<p className='text-uppercase mb-1'>
 						We use latest medical technology.
 					</p>
-					<h3>Let Us Brighten Your Smile</h3>
+					<h3 className='display-5'>Let Us Brighten Your Smile</h3>
 				</Carousel.Caption>
 			</Carousel.Item>
 			<Carousel.Item>
@@ -45,7 +45,7 @@ const Banner = () => {
 					<p className='text-uppercase mb-1'>
 						We use latest medical technology.
 					</p>
-					<h3>Let Us Brighten Your Smile</h3>
+					<h3 className='display-5'>Let Us Brighten Your Smile</h3>
 				</Carousel.Caption>
 			</Carousel.Item>
 		</Carousel>

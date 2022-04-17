@@ -4,7 +4,6 @@
 	object-fit: cover;
 }
 
-.position {
-	bottom: 50%;
-	left: 20%;
+.bannar_text {
+	color: #091d3e;
 }
