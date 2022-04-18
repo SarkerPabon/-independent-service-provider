@@ -3,8 +3,8 @@ import {
 	useCreateUserWithEmailAndPassword,
 	useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { Navigate, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { Link, Navigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
@@ -12,7 +12,7 @@ import Loading from "../Shared/Loading";
 const Register = () => {
 	const [agree, setAgree] = useState(false);
 
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	const [createUserWithEmailAndPassword, user, loading, error] =
 		useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -99,7 +99,17 @@ const Register = () => {
 				<button type='submit' className='btn btn-primary' disabled={!agree}>
 					Register
 				</button>
+				<p className='lead mt-3 text-center'>
+					Already Registered?{" "}
+					<Link
+						to='/login'
+						className='text-decoration-none text-primary fw-bold'
+					>
+						Login?
+					</Link>
+				</p>
 			</form>
+			<ToastContainer />
 		</div>
 	);
 };

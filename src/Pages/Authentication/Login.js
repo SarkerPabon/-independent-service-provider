@@ -1,17 +1,25 @@
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useRef } from "react";
+import {
+	useSendPasswordResetEmail,
+	useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import { Link, Navigate, useLocation } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 const Login = () => {
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
+	const emailRef = useRef();
 	const location = useLocation();
 
 	let from = location.state?.from?.pathname || "/";
 
 	const [signInWithEmailAndPassword, user, loading, error] =
 		useSignInWithEmailAndPassword(auth);
+
+	const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -37,12 +45,24 @@ const Login = () => {
 		return <Navigate to={from} replace={true} />;
 	}
 
+	const resetPassword = async () => {
+		const email = emailRef.current.value;
+
+		if (email) {
+			await sendPasswordResetEmail(email);
+			toast.success("Email Sent", { theme: "colored" });
+		} else {
+			toast.error("Enter the email adress", { theme: "colored" });
+		}
+	};
+
 	return (
 		<div className='container'>
 			<h1 className='text-center text-primary my-4'>Login</h1>
 			<form onSubmit={handleSubmit} className='w-50 mx-auto mb-5'>
 				<div className='mb-3'>
 					<input
+						ref={emailRef}
 						type='email'
 						className='form-control'
 						name='email'
@@ -68,7 +88,29 @@ const Login = () => {
 				<button type='submit' className='btn btn-primary'>
 					Login
 				</button>
+
+				<p className='lead mt-3 mb-0 text-center'>
+					New here? &nbsp;
+					<Link
+						to='/register'
+						className='text-decoration-none text-primary fw-bold'
+					>
+						Registration?
+					</Link>
+				</p>
+
+				<p className='lead mt-0 pt-0 text-center'>
+					Reset Password?
+					<button
+						to='/register'
+						className='btn btn-link text-decoration-none text-primary fw-bold fs-5 mb-1'
+						onClick={resetPassword}
+					>
+						Sent Email?
+					</button>
+				</p>
 			</form>
+			<ToastContainer />
 		</div>
 	);
 };
