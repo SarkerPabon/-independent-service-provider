@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# Project Name: Independent Service Provider
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project live link is [Product Analysis](https://astounding-boba-d5ce2f.netlify.app/).
+
+
+
+## Project Features
+  - This website basically shows our satisfied custoers reviews. 
+  - This website has Email based authentication
+  - This website has Social Media based authentication
+  - This website has protected route
+  - This website is mobile responsive. 
+  - Please feel free to visit our website
+  - Here we use some modern technologies 
+    - React
+    - React Router
+    - Bootstrap 5
+    - Authenteication
+    - React Icon
+
 
 ## Available Scripts
 
