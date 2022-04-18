@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { DataContext } from "../../Provider/DataContextProvider";
 
 const ServiceDetails = () => {
+	const navigate = useNavigate();
+
 	const [serviceInfo, setServiceInfo] = useState({});
 	const { serviceId } = useParams();
 	// console.log("Service ID: ", serviceId);
@@ -27,7 +29,10 @@ const ServiceDetails = () => {
 				<div className='col-sm-12 col-md-6 mb-sm-3'>
 					<h3 className='text-center display-5'>{serviceInfo?.title}</h3>
 					<p className='lead'>{serviceInfo?.description}</p>
-					<button className='btn btn-outline-primary d-block mx-auto mt-3 '>
+					<button
+						onClick={() => navigate("/checkout")}
+						className='btn btn-outline-primary d-block mx-auto mt-3 '
+					>
 						Book Now
 					</button>
 				</div>
