@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import About from "./Pages/About";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
+import RequiredAuth from "./Pages/Authentication/RequiredAuth";
 import Blog from "./Pages/Blog";
 import Checkout from "./Pages/Checkout";
 import ErrorPage from "./Pages/ErrorPage";
@@ -24,7 +25,14 @@ function App() {
 					<Route path='/services/:serviceId' element={<ServiceDetails />} />
 					<Route path='/about' element={<About />} />
 					<Route path='/blog' element={<Blog />} />
-					<Route path='/checkout' element={<Checkout />} />
+					<Route
+						path='/checkout'
+						element={
+							<RequiredAuth>
+								<Checkout />
+							</RequiredAuth>
+						}
+					/>
 					<Route path='/register' element={<Register />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='*' element={<ErrorPage />} />

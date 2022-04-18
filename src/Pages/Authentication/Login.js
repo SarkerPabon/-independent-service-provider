@@ -1,4 +1,18 @@
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
+
 const Login = () => {
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	let from = location.state?.from?.pathname || "/";
+
+	const [signInWithEmailAndPassword, user, loading, error] =
+		useSignInWithEmailAndPassword(auth);
+
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
@@ -6,7 +20,22 @@ const Login = () => {
 		const password = event.target.password.value;
 
 		console.log(email, password);
+		await signInWithEmailAndPassword(email, password);
 	};
+
+	if (loading) {
+		return <Loading />;
+	}
+
+	if (error) {
+		toast.error(error.message, { theme: "colored" });
+	}
+
+	if (user) {
+		console.log(user);
+		// navigate(from, { replace: true });
+		return <Navigate to={from} replace={true} />;
+	}
 
 	return (
 		<div className='container'>

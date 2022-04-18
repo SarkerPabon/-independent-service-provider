@@ -1,9 +1,9 @@
 import { useState } from "react";
 import {
 	useCreateUserWithEmailAndPassword,
-	useUpdateProfile
+	useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
@@ -41,7 +41,8 @@ const Register = () => {
 
 	if (user) {
 		console.log(user);
-		navigate("/home");
+		// navigate("/home");
+		return <Navigate to='/home' />;
 	}
 
 	return (
