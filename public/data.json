@@ -3,18 +3,21 @@
     "id": 1,
     "title": "Cosmetic Dentistry",
     "description": "Cosmetic dentistry is generally used to refer to any dental work that improves the appearance (though not necessarily the functionality) of teeth, gums and/or bite. It primarily focuses on improvement in dental aesthetics in color, position, shape, size, alignment and overall smile appearance. Cosmetic dentistry is generally used to refer to any dental work that improves the appearance (though not necessarily the functionality) of teeth, gums and/or bite. It primarily focuses on improvement in dental aesthetics in color, position, shape, size, alignment and overall smile appearance.",
-    "img": "/images/services/service1.jpg"
+    "img": "/images/services/service1.jpg",
+    "price": 39
   },
   {
     "id": 2,
     "title": "Pediatric Dentistry",
     "description": "Pediatric dentistry (formerly pedodontics in American English or paedodontics in Commonwealth English) is the branch of dentistry dealing with children from birth through adolescence. Pediatric dentistry (formerly pedodontics in American English or paedodontics in Commonwealth English) is the branch of dentistry dealing with children from birth through adolescence.",
-    "img": "/images/services/service2.jpg"
+    "img": "/images/services/service2.jpg",
+    "price": 29
   },
   {
     "id": 3,
     "title": "Dental Implants",
     "description": "A dental implant (also known as an endosseous implant or fixture) is a prosthesis that interfaces with the bone of the jaw or skull to support a dental prosthesis such as a crown, bridge, denture, or facial prosthesis or to act as an orthodontic anchor.  A dental implant (also known as an endosseous implant or fixture) is a prosthesis that interfaces with the bone of the jaw or skull to support a dental prosthesis such as a crown, bridge, denture, or facial prosthesis or to act as an orthodontic anchor.",
-    "img": "/images/services/service3.jpg"
+    "img": "/images/services/service3.jpg",
+    "price": 199
   }
 ]

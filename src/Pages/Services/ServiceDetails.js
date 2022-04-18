@@ -29,12 +29,15 @@ const ServiceDetails = () => {
 				<div className='col-sm-12 col-md-6 mb-sm-3'>
 					<h3 className='text-center display-5'>{serviceInfo?.title}</h3>
 					<p className='lead'>{serviceInfo?.description}</p>
-					<button
-						onClick={() => navigate("/checkout")}
-						className='btn btn-outline-primary d-block mx-auto mt-3 '
-					>
-						Book Now
-					</button>
+					<div className='d-flex justify-content-evenly align-items-center'>
+						<span className='fs-3 mt-3'>Price: ${serviceInfo?.price}</span>
+						<button
+							onClick={() => navigate("/checkout")}
+							className='btn btn-outline-primary d-block  mt-3 '
+						>
+							Book Now
+						</button>
+					</div>
 				</div>
 				<div className='col-sm-12 col-md-6'>
 					<img src={serviceInfo?.img} alt='title' className='img-fluid' />

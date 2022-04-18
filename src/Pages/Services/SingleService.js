@@ -2,7 +2,7 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const SingleService = ({ service }) => {
-	const { id, title, description, img } = service;
+	const { id, title, description, img, price } = service;
 
 	/* const navigate = useNavigate();
 
@@ -17,13 +17,16 @@ const SingleService = ({ service }) => {
 				<Card.Body>
 					<Card.Title className='text-center'>{title}</Card.Title>
 					<Card.Text>{description.slice(0, 150)}</Card.Text>
-					<Link
-						to={`/services/${id}`}
-						variant='primary'
-						className='d-block mx-auto btn btn-primary'
-					>
-						Details for Booking
-					</Link>
+					<div className='d-flex justify-content-between align-items-center'>
+						<span className='fs-2'>${price}</span>
+						<Link
+							to={`/services/${id}`}
+							variant='primary'
+							className='d-block btn btn-primary '
+						>
+							Details for Booking
+						</Link>
+					</div>
 				</Card.Body>
 			</Card>
 		</div>

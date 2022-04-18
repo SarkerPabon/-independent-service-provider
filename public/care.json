@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Chid Health Care",
+    "description": "Child care, otherwise known as day care, is the care and supervision of a child or multiple children at a time, whose ages range from two weeks to eighteen years. Child care is a broad topic that covers a wide spectrum of professionals, institutions, contexts, activities, and social and cultural conventions. Early child care is an equally important and often overlooked component of child development.",
+    "img": "/images/cares/care1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Seinor Care",
+    "description": "Senior care, or simply eldercare (also known in parts of the English-speaking world as aged care), serves the needs and requirements of senior citizens. It encompasses assisted living, adult daycare, long-term care, nursing homes (often called residential care), hospice care, and home care. Because of the wide variety of elderly care needs and cultural perspectives on the elderly,",
+    "img": "/images/cares/care2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Newborn Baby Care",
+    "description": "Taking a newborn care class during pregnancy can prepare caregivers. During the stay in a hospital or birthing center, clinicians and nurses help with basic baby care. These health providers will demonstrate basic infant care.Many first-time parents also welcome the help of a family member or friend who has been there. Having a support person stay with the newborn for a few days can give the mother the confidence to go at it alone in the weeks ahead. This can be arranged before delivery",
+    "img": "/images/cares/care3.jpg"
+  }
+]
