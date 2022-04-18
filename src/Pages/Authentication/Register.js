@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
+import SocialLogin from "./SocialLogin";
 
 const Register = () => {
 	const [agree, setAgree] = useState(false);
@@ -48,7 +49,7 @@ const Register = () => {
 	return (
 		<div className='container'>
 			<h1 className='text-center text-primary my-4'>Registration</h1>
-			<form onSubmit={handleSubmit} className='w-50 mx-auto mb-5'>
+			<form onSubmit={handleSubmit} className='w-50 mx-auto '>
 				<div className='mb-3'>
 					<input
 						type='text'
@@ -110,6 +111,7 @@ const Register = () => {
 				</p>
 			</form>
 			<ToastContainer />
+			<SocialLogin />
 		</div>
 	);
 };

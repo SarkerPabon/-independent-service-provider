@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
 	// const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Login = () => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+		event.stopPropagation();
 
 		const email = event.target.email.value;
 		const password = event.target.password.value;
@@ -36,7 +38,7 @@ const Login = () => {
 	}
 
 	if (error) {
-		toast.error(error.message, { theme: "colored" });
+		toast.error(error.message, { theme: "colored", toastId: "error.message" });
 	}
 
 	if (user) {
@@ -45,21 +47,27 @@ const Login = () => {
 		return <Navigate to={from} replace={true} />;
 	}
 
-	const resetPassword = async () => {
+	const resetPassword = async (event) => {
+		event.stopPropagation();
 		const email = emailRef.current.value;
+		console.log(email);
 
 		if (email) {
 			await sendPasswordResetEmail(email);
-			toast.success("Email Sent", { theme: "colored" });
+			toast.success("Email Sent", { theme: "colored", toastId: "emailSucces" });
+			console.log("email success");
 		} else {
-			toast.error("Enter the email adress", { theme: "colored" });
+			toast.error("Enter the email adress", {
+				theme: "colored",
+				toastId: "emailError",
+			});
 		}
 	};
 
 	return (
 		<div className='container'>
-			<h1 className='text-center text-primary my-4'>Login</h1>
-			<form onSubmit={handleSubmit} className='w-50 mx-auto mb-5'>
+			<h1 className='text-center text-primary my-2'>Login</h1>
+			<form onSubmit={handleSubmit} className='w-50 mx-auto'>
 				<div className='mb-3'>
 					<input
 						ref={emailRef}
@@ -111,6 +119,7 @@ const Login = () => {
 				</p>
 			</form>
 			<ToastContainer />
+			<SocialLogin />
 		</div>
 	);
 };
