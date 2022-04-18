@@ -1,10 +1,14 @@
-import { Button, Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const SingleService = ({ service }) => {
 	const { id, title, description, img } = service;
 
-	const navigate = useNavigate();
+	/* const navigate = useNavigate();
+
+	const handleServiceDetails = () => {
+		navigate(`services/${id}`);
+	}; */
 
 	return (
 		<div className='col-sm-12 col-md-4'>
@@ -13,13 +17,13 @@ const SingleService = ({ service }) => {
 				<Card.Body>
 					<Card.Title className='text-center'>{title}</Card.Title>
 					<Card.Text>{description.slice(0, 150)}</Card.Text>
-					<Button
-						onClick={() => navigate(`/services/${id}`)}
+					<Link
+						to={`/services/${id}`}
 						variant='primary'
-						className='d-block mx-auto'
+						className='d-block mx-auto btn btn-primary'
 					>
 						Details for Booking
-					</Button>
+					</Link>
 				</Card.Body>
 			</Card>
 		</div>

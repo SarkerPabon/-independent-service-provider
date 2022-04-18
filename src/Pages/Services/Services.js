@@ -2,12 +2,20 @@ import { useEffect, useState } from "react";
 import SingleService from "./SingleService";
 
 const Services = () => {
+	/* const services = useServices();
+	console.log("Services Page: ", services); */
+
+	// const services = useContext(DataContext);
+
 	const [services, setServices] = useState([]);
 
 	useEffect(() => {
-		fetch("data.json")
+		fetch("/data.json")
 			.then((res) => res.json())
-			.then((data) => setServices(data));
+			.then((data) => {
+				setServices(data);
+				// console.log("Services: ", services);
+			});
 	}, []);
 
 	return (
@@ -22,17 +30,6 @@ const Services = () => {
 						<SingleService key={service.id} service={service} />
 					))}
 				</div>
-				{/* <div className='row'>
-					<div className='col-sm-12 col-md-4'>
-						<SingleService />
-					</div>
-					<div className='col-sm-12 col-md-4'>
-						<SingleService />
-					</div>
-					<div className='col-sm-12 col-md-4'>
-						<SingleService />
-					</div>
-				</div> */}
 			</section>
 		</div>
 	);
