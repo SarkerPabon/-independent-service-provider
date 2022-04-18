@@ -1,15 +1,48 @@
-import React from "react";
+import { useState } from "react";
+import {
+	useCreateUserWithEmailAndPassword,
+	useUpdateProfile
+} from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
 const Register = () => {
-	const handleSubmit = (event) => {
+	const [agree, setAgree] = useState(false);
+
+	const navigate = useNavigate();
+
+	const [createUserWithEmailAndPassword, user, loading, error] =
+		useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+	const [updateProfile] = useUpdateProfile(auth);
+
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const name = event.target.name.value;
 		const email = event.target.email.value;
 		const password = event.target.password.value;
 
-		console.log(name, email, password);
+		// console.log(name, email, password);
+		await createUserWithEmailAndPassword(email, password);
+		await updateProfile({ displayName: name });
 	};
+
+	if (loading) {
+		return <Loading />;
+	}
+
+	if (error) {
+		toast.error(error.message, { theme: "colored" });
+	}
+
+	if (user) {
+		console.log(user);
+		navigate("/home");
+	}
 
 	return (
 		<div className='container'>
@@ -49,12 +82,20 @@ const Register = () => {
 					</div>
 				</div>
 				<div className='mb-3 form-check'>
-					<input type='checkbox' className='form-check-input' id='checkout' />
-					<label className='form-check-label' htmlFor='exampleCheck1'>
+					<input
+						onClick={() => setAgree(!agree)}
+						type='checkbox'
+						className='form-check-input'
+						id='checkout'
+					/>
+					<label
+						className={`form-check-label ${agree ? "" : "text-danger"} `}
+						htmlFor='exampleCheck1'
+					>
 						Accept Genius Terms & Conditions
 					</label>
 				</div>
-				<button type='submit' className='btn btn-primary'>
+				<button type='submit' className='btn btn-primary' disabled={!agree}>
 					Register
 				</button>
 			</form>

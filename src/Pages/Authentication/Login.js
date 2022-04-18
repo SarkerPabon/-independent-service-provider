@@ -1,7 +1,5 @@
-import React from "react";
-
 const Login = () => {
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const email = event.target.email.value;

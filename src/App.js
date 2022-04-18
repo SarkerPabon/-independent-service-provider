@@ -1,4 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import About from "./Pages/About";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
@@ -28,6 +30,7 @@ function App() {
 					<Route path='*' element={<ErrorPage />} />
 				</Routes>
 				<Footer />
+				<ToastContainer />
 			</BrowserRouter>
 		</DataContextProvider>
 	);
