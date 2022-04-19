@@ -1,11 +1,11 @@
-# Project Name: Independent Service Provider
+# Project Name: ToothCare (Independent Service Provider)
 
-The project live link is [Product Analysis](https://astounding-boba-d5ce2f.netlify.app/).
+The project live link is [ToothCare](https://independent-service-prov-b0f8a.web.app/).
 
 
 
 ## Project Features
-  - This website basically shows our satisfied custoers reviews. 
+  - This website basically shows a denstist website. 
   - This website has Email based authentication
   - This website has Social Media based authentication
   - This website has protected route
@@ -17,6 +17,8 @@ The project live link is [Product Analysis](https://astounding-boba-d5ce2f.netli
     - Bootstrap 5
     - Authenteication
     - React Icon
+    - React Toastify
+    - React Firebase Hook
 
 
 ## Available Scripts
